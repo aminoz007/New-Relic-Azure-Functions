@@ -44,7 +44,7 @@ If you are running this function in the EU set the `NR_ENDPOINT` to `https://log
 
 ## Issues / Enhancement Requests
 
-Issues and enhancement requests can be submitted in the [issues tab of this repository](https://github.com/aminoz007/newrelic-azure-functions/newrelic-azure-blobLogs/issues).
+Issues and enhancement requests can be submitted in the [issues tab of this repository](https://github.com/aminoz007/New-Relic-Azure-Functions/issues).
 Please search for and review the existing open issues before submitting a new issue.
 
 ## Contributing
