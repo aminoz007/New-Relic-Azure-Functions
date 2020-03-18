@@ -12,8 +12,8 @@ The provided Node.js script must be deployed into your Azure Functions service.
 
 | Property | Required or Optional | Default Value | Description
 |---|---|---|---|
-| NR_LICENCE_KEY | Required if `NR_INSERT_KEY` is not provided | | Your New Relic License key |
-| NR_INSERT_KEY | Required if `NR_LICENCE_KEY` is not provided | | Your New Relic Insights Insert key |
+| NR_LICENSE_KEY | Required if `NR_INSERT_KEY` is not provided | | Your New Relic License key |
+| NR_INSERT_KEY | Required if `NR_LICENSE_KEY` is not provided | | Your New Relic Insights Insert key |
 | NR_ENDPOINT|  Optional | `https://log-api.newrelic.com/log/v1` | New Relic ingestion endpoint |
 | NR_TAGS | Optional | | Key value pairs seperated by semicolon  to tag all logs sent to New Relic (example: `env:prod;team:myTeam`) |
 | NR_MAX_RETRIES | Optional | 3 | Determines how many times we should retry sending the logs in case of network failures |
@@ -23,7 +23,12 @@ The provided Node.js script must be deployed into your Azure Functions service.
 
 1. Log in to the Azure Portal.
 2. Cick on the top left `+` icon then Compute then Function App.
-3. Once you click on Function App, the next screen will appear where you need to provide some information. Select Publish= code, Runtime stack= Node.js and Version= 12, fill out the other information (region, subscription, hosting etc ...)
+3. Once you click on Function App, the next screen will appear where you need to provide some information. Select:
+* Publish: code 
+* Runtime stack: Node.js 
+* Version: 12 
+* Operating System: Windows  
+Fill out the other information (region, subscription, hosting etc ...)
 4. After this function is deployed we will need to add a trigger. Click on the `+` icon next to Functions and then click on In-Portal to code in the Azure portal itself.
 5. Now we must select the desired template from the available templates. Click on `more templates` and select `Azure Event Hub Trigger`.
 6. Add the wanted `Event Hub connection` or create a new one if you haven't have one already. Select the `Event Hub consumer group` and the `Event Hub Name` you want to pull logs from.
