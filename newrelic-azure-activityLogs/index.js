@@ -12,7 +12,7 @@ var zlib= require('zlib');
 const VERSION = '1.0.0';
 
 // Global constants
-const NR_LICENCE_KEY = process.env.NR_LICENCE_KEY;
+const NR_LICENSE_KEY = process.env.NR_LICENSE_KEY;
 const NR_INSERT_KEY = process.env.NR_INSERT_KEY;
 const NR_ENDPOINT = process.env.NR_ENDPOINT || 'https://log-api.newrelic.com/log/v1';
 const NR_TAGS = process.env.NR_TAGS; //Semicolon-seperated tags
@@ -22,9 +22,9 @@ const NR_MAX_RETRIES = process.env.NR_MAX_RETRIES || 3;
 const NR_RETRY_INTERVAL =  process.env.NR_RETRY_INTERVAL || 2000; // default: 2 seconds
 
 module.exports = async function (context, eventHubMessages) {
-    if (!NR_LICENCE_KEY && !NR_INSERT_KEY) {
+    if (!NR_LICENSE_KEY && !NR_INSERT_KEY) {
         context.log.error(
-            'You have to configure either your licence key or insights insert key. Please follow the instructions in README'
+            'You have to configure either your LICENSE key or insights insert key. Please follow the instructions in README'
         );
         return;
     }
@@ -214,7 +214,7 @@ function httpSend(data, context) {
             }
         }
 
-        NR_LICENCE_KEY ? options.headers["X-License-Key"] = NR_LICENCE_KEY : options.headers["X-Insert-Key"] = NR_INSERT_KEY
+        NR_LICENSE_KEY ? options.headers["X-License-Key"] = NR_LICENSE_KEY : options.headers["X-Insert-Key"] = NR_INSERT_KEY
 
         var req = https.request(options, function (res) {
             var body = '';
